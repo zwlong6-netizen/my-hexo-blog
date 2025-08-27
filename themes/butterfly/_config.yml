@@ -11,7 +11,7 @@
 
 nav:
   # Navigation bar logo image
-  logo: https://s1.imagehub.cc/images/2025/08/23/35f7575f73aee7684a39f50174f91b9b.png
+  logo: 
   display_title: true
   display_post_title: true
   # Whether to fix navigation bar
@@ -60,7 +60,7 @@ social:
 # Image Settings
 # --------------------------------------
 
-favicon: 
+favicon: /img/favicon.ico
 
 avatar:
   img: /img/avatar.png
