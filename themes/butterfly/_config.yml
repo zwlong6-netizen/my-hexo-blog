@@ -11,7 +11,7 @@
 
 nav:
   # Navigation bar logo image
-  logo:
+  logo: https://s1.imagehub.cc/images/2025/08/23/35f7575f73aee7684a39f50174f91b9b.png
   display_title: true
   display_post_title: true
   # Whether to fix navigation bar
@@ -53,24 +53,24 @@ code_blocks:
 # Formal:
 #   icon: link || the description || color
 social:
-  # fab fa-github: https://github.com/xxxxx || Github || '#24292e'
-  # fas fa-envelope: mailto:xxxxxx@gmail.com || Email || '#4a7dbe'
+  fab fa-github: https://github.com/zwlong6-netizen || Github || '#24292e'
+  fas fa-envelope: mailto:2567585172@qq.com || Email || '#4a7dbe'
 
 # --------------------------------------
 # Image Settings
 # --------------------------------------
 
-favicon: /img/favicon.png
+favicon: /img/favicon.ico
 
 avatar:
-  img: /img/butterfly-icon.png
+  img: /img/avatar.png
   effect: false
 
 # Disable all banner images
-disable_top_img: false
+disable_top_img: true
 
 # If the banner of page not setting, it will show the default_top_img
-default_top_img:
+default_top_img: /img/top_image.png
 
 # The banner image of index page
 index_img:
