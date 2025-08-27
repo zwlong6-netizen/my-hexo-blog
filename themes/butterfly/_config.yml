@@ -36,7 +36,7 @@ menu:
 
 code_blocks:
   # Code block theme: darker / pale night / light / ocean / false
-  theme: darker
+  theme: light
   macStyle: true
   # Code block height limit (unit: px)
   height_limit: false
@@ -73,7 +73,7 @@ disable_top_img: false
 default_top_img: /img/top_image.png
 
 # The banner image of index page
-index_img:
+index_img: /img/top_image.png
 
 # The banner image of archive page
 archive_img:
