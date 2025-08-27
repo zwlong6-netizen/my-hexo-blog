@@ -103,4 +103,4 @@ theme: butterfly
 deploy:
   type: git
   repo: https://github.com/zwlong6-netizen/my-hexo-blog.git
-  branch: main
+  branch: master
