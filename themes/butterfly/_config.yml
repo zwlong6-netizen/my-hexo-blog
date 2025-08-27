@@ -747,9 +747,9 @@ umami_analytics:
   website_id: 27f5cd3f-7f37-4fe8-97db-472951c0f249
   option:
   UV_PV:
-    site_uv: true
-    site_pv: true
-    page_pv: true
+    site_uv: false
+    site_pv: false
+    page_pv: false
     # Umami Cloud (API key) / self-hosted Umami (token)
     token:
 
