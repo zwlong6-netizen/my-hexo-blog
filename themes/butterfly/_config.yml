@@ -228,11 +228,12 @@ reward:
 
 # Post edit
 # Easily browse and edit blog source code online.
+# 编辑文章
 post_edit:
-  enable: true
+  enable: false
   # url: https://github.com/user-name/repo-name/edit/branch-name/subdirectory-name/
   # For example: https://github.com/jerryc127/butterfly.js.org/edit/main/source/
-  url: https://zzzero.site
+  url: 
 
 # Related Articles
 related_post:
@@ -250,15 +251,15 @@ post_pagination: 1
 
 # Displays outdated notice for a post
 noticeOutdate:
-  enable: false
+  enable: true
   # Style: simple / flat
   style: flat
   # When will it be shown
-  limit_day: 365
+  limit_day: 1
   # Position: top / bottom
   position: top
-  message_prev: It has been
-  message_next: days since the last update, the content of the article may be outdated.
+  message_prev: 这篇文章已经过去
+  message_next: 多少天啦，请注意时效性！
 
 # --------------------------------------
 # Footer Settings
