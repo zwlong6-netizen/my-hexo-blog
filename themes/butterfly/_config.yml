@@ -421,7 +421,7 @@ translate:
   # The text of the button when the language is Simplified Chinese
   msgToTraditionalChinese: '繁'
   # The text of the button when the language is Traditional Chinese
-  msgToSimplifiedChinese: '簡'
+  msgToSimplifiedChinese: '简'
 
 # Read Mode
 readmode: true
@@ -441,7 +441,7 @@ darkmode:
   end: 18
 
 # Show scroll percent in scroll-to-top button
-rightside_scroll_percent: false
+rightside_scroll_percent: true
 
 # Don't modify the following settings unless you know how they work
 # Choose: readmode,translate,darkmode,hideAside,toc,chat,comment
