@@ -741,15 +741,15 @@ microsoft_clarity:
 
 # https://umami.is/
 umami_analytics:
-  enable: false
+  enable: true
   # For self-hosted setups, configure the hostname of the Umami instance
-  serverURL:
-  website_id:
+  serverURL: https://analysis.zzzero.site
+  website_id: 27f5cd3f-7f37-4fe8-97db-472951c0f249
   option:
   UV_PV:
-    site_uv: false
-    site_pv: false
-    page_pv: false
+    site_uv: true
+    site_pv: true
+    page_pv: true
     # Umami Cloud (API key) / self-hosted Umami (token)
     token:
 
