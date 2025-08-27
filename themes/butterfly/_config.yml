@@ -268,33 +268,31 @@ footer:
   nav:
     - width:
       content:
-        - title: 文檔
+        - title: 文档
           item:
-            - title: 🚀 快速開始
+            - title: 🚀 快速开始
               url: /posts/21cfbf15/
-            - title: 📑 主題頁面
+            - title: 📑 主题页面
               url: /posts/dc584b87/
-            - title: 📌 主題配置
+            - title: 📌 主题配置
               url: /posts/4aa8abbe/
-            - title: ⚔️ 標簽外掛
+            - title: ⚔️ 标签外挂
               url: /posts/ceeb73f/
-            - title: ❓ 主題問答
+            - title: ❓ 主题问答
               url: /posts/98d20436/
-            - title: ⚡️ 進階教程
+            - title: ⚡️ 建站教程
               url: /posts/4073eda/
     - content:
       - title: 其他
         item:
-          - title: 圖庫
+          - title: 图库
             url: /Gallery/
           - title: 留言板
             url: /messageboard/
-          - title: 說說
+          - title: 说说
             url: /talking/
-          - title: 示例
+          - title: 友链
             url: /link/
-          - title: 友鏈
-            url: /links/
     - content:
       - title: 框架
         item:
@@ -303,9 +301,9 @@ footer:
           - title: Butterfly
             url: https://butterfly.js.org/
     - content:
-      - title: 贊助
+      - title: 赞助
         item:
-          - title: 支付寶
+          - title: 支付宝
             url: https://jsd.012700.xyz/gh/jerryc127/CDN/Photo/alipay.jpg
             html: "<img src='https://jsd.012700.xyz/gh/jerryc127/CDN/Photo/alipay.jpg' alt='JerryC' width='100px' height='100px'>"
   owner:
