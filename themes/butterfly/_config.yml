@@ -472,8 +472,8 @@ copy:
   enable: true
   # Add the copyright information after copied content
   copyright:
-    enable: false
-    limit_count: 150
+    enable: true
+    limit_count: 50
 
 # Need to install the hexo-wordcount plugin
 wordcount:
