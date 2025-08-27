@@ -1042,9 +1042,9 @@ snackbar:
   bg_light: '#49b1f5'
   bg_dark: '#1f1f1f'
 
-# Instant.page
+# Instant.page 预加载
 # https://instant.page/
-instantpage: false
+instantpage: true
 
 # Lazyload
 # https://github.com/verlok/vanilla-lazyload
