@@ -884,7 +884,7 @@ hr_icon:
 activate_power_mode:
   enable: true
   colorful: true
-  shake: true
+  shake: false
   mobile: false
 
 # Background effects
