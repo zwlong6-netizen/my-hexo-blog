@@ -1119,9 +1119,3 @@ CDN:
     # valine:
     # waline_css:
     # waline_js:
-
-
-deploy:
-  type: git
-  repo: https://github.com/zwlong6-netizen/my-hexo-blog.git
-  branch: master
