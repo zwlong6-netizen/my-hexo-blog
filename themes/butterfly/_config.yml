@@ -34,7 +34,7 @@ menu:
 
 code_blocks:
   # Code block theme: darker / pale night / light / ocean / false
-  theme: light
+  theme: darker
   macStyle: true
   # Code block height limit (unit: px)
   height_limit: false
@@ -257,7 +257,7 @@ noticeOutdate:
   # Position: top / bottom
   position: top
   message_prev: 这篇文章已经过去
-  message_next: 多少天啦，请注意时效性！
+  message_next: 天啦，请注意时效性！
 
 # --------------------------------------
 # Footer Settings
@@ -558,7 +558,7 @@ share:
   # Share.js
   # https://github.com/overtrue/share.js
   sharejs:
-    sites: facebook,twitter,wechat,weibo,qq
+    sites: wechat,weibo,qq
 
   # AddToAny
   # https://www.addtoany.com/
