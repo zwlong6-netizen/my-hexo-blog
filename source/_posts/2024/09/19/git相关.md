@@ -1,18 +1,18 @@
 ---
 title: git相关
-description: 介绍了git的相关命令
-date: 2024-09-19T09:19:45
-updated: 2025-08-28 21:26:32
+description: 测试文档的描述
+date: 2024-09-19T09:19:55
+updated: 2025-08-28 21:48:53
 tags:
   - git命令
+  - git合并
 categories: git
 keywords:
-  - 命令
 top_img:
 ---
+## 1. 相关命令
 
-```bash
-
+```shell
 # 远程
 origin main
 origin branch_test
@@ -26,7 +26,7 @@ branch_test
 # Disk
 
 # 修改代码步骤
-<https://www.bilibili.com/video/BV19e4y1q7JJ>
+https://www.bilibili.com/video/BV19e4y1q7JJ
 # 1. remote-->Local、Disk
 git clone xxx
 
@@ -47,7 +47,7 @@ git pull main
 # git chechout -
 
 # 3. 在branch_test分支下，修改代码（修改的是Disk上的代码，所以Disk上的文件和Local上的文件不一致）
-# 查看有什么改变
+# 查看有什么改变？
 git diff
 
 # 4. 将Disk上的文件拷贝到暂存区
@@ -101,7 +101,6 @@ git rebase 之后结构更简洁，减轻大量merge线条太多的问题
 git merge 能保留原有的分支结构
 ```
 
-## git merge和git rebase区别![](../../images/Pasted%20image%2020250828213051.png)
+## 2. git merge 和 git rebase区别
 
-![](../../images/Pasted%20image%2020250828211256.png)
-![](../../images/Pasted%20image%2020250828211405.png)![](../../images/Pasted%20image%2020250828213550.png)
+![](../../../../images/Pasted%20image%2020250828214916.png)![](../../../../images/Pasted%20image%2020250828214924.png)
