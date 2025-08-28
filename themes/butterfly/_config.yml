@@ -217,10 +217,10 @@ reward:
   enable: true
   text: 支持我吧！
   QR_code:
-    - img: /img/butterfly-icon.png
+    - img: /img/wechat.png
       link:
       text: wechat
-    - img: /img/butterfly-icon.png
+    - img: /img/alipay.png
       link:
       text: alipay
 
@@ -298,12 +298,6 @@ footer:
             url: https://hexo.io/zh-cn/
           - title: Butterfly
             url: https://butterfly.js.org/
-    - content:
-      - title: 赞助
-        item:
-          - title: 支付宝
-            url: https://jsd.012700.xyz/gh/jerryc127/CDN/Photo/alipay.jpg
-            html: "<img src='https://jsd.012700.xyz/gh/jerryc127/CDN/Photo/alipay.jpg' alt='JerryC' width='100px' height='100px'>"
   owner:
     enable: true
     since: 2025
@@ -801,7 +795,7 @@ theme_color:
   main: "#0d0d0d"
   paginator: "#00c4b6"
   button_hover: "#0001ff"
-  text_selection: "#0d0d0d"
+  text_selection: "#4f50fc"
   link_color: "#0001ff"
   meta_color: "#858585"
   hr_color: "#4f50fc"
