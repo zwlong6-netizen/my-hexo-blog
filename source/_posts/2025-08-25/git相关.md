@@ -2,7 +2,7 @@
 title: git相关
 description: 介绍了git的相关命令
 date: 2024-09-19T09:19:45
-updated: 2024-09-28 21:14:13
+updated: 2025-08-28 21:26:32
 tags:
   - git命令
 categories: git
@@ -101,7 +101,7 @@ git rebase 之后结构更简洁，减轻大量merge线条太多的问题
 git merge 能保留原有的分支结构
 ```
 
-## git merge和git rebase区别
+## git merge和git rebase区别![](../../images/Pasted%20image%2020250828213051.png)
 
-![](assets/Pasted%20image%2020250828211256.png)
-![](assets/Pasted%20image%2020250828211405.png)
+![](../../images/Pasted%20image%2020250828211256.png)
+![](../../images/Pasted%20image%2020250828211405.png)![](../../images/Pasted%20image%2020250828213550.png)

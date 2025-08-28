@@ -13,7 +13,8 @@
       "folder": {
         "enabled": true,
         "folders": [
-          "_posts"
+          "_posts/{{date}}",
+          "_posts/{{date:yyyy/MM/DD}}"
         ],
         "chooseWhenCreatingNote": false,
         "createInSameFolderAsActiveFile": false,
