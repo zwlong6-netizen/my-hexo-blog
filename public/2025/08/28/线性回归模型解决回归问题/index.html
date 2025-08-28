@@ -1,0 +1,338 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>线性回归模型解决回归问题 | ZhouZhou's Blog</title><meta name="author" content="ZhouZhou"><meta name="copyright" content="ZhouZhou"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="线性回归模型">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线性回归模型解决回归问题">
+<meta property="og:url" content="https://blog.zzzero.site/2025/08/28/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B%E8%A7%A3%E5%86%B3%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:site_name" content="ZhouZhou&#39;s Blog">
+<meta property="og:description" content="线性回归模型">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.98qy.com/sjbz/api.php?r=28223740">
+<meta property="article:published_time" content="2025-08-28T14:37:40.000Z">
+<meta property="article:modified_time" content="2025-08-28T14:39:47.000Z">
+<meta property="article:author" content="ZhouZhou">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="线性回归">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.98qy.com/sjbz/api.php?r=28223740"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "线性回归模型解决回归问题",
+  "url": "https://blog.zzzero.site/2025/08/28/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B%E8%A7%A3%E5%86%B3%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%98/",
+  "image": "http://www.98qy.com/sjbz/api.php?r=28223740",
+  "datePublished": "2025-08-28T14:37:40.000Z",
+  "dateModified": "2025-08-28T14:39:47.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "ZhouZhou",
+      "url": "https://blog.zzzero.site"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://blog.zzzero.site/2025/08/28/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B%E8%A7%A3%E5%86%B3%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%98/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: ZhouZhou","link":"链接: ","source":"来源: ZhouZhou's Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'medium_zoom',
+  Snackbar: {"chs_to_cht":"已切换为繁体中文","cht_to_chs":"已切换为简体中文","day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-center"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '线性回归模型解决回归问题',
+  isHighlightShrink: true,
+  isToc: true,
+  pageType: 'post'
+}</script><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 文档</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 朋友</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(http://www.98qy.com/sjbz/api.php?r=28223740);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">ZhouZhou's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">线性回归模型解决回归问题</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 文档</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 朋友</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">线性回归模型解决回归问题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-08-28T14:37:40.000Z" title="发表于 2025-08-28 22:37:40">2025-08-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-08-28T14:39:47.000Z" title="更新于 2025-08-28 22:39:47">2025-08-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">450</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>1分钟</span></span><span class="post-meta-separator">|</span><span id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="twikoo_visitors"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><div id="post-outdate-notice" data="{&quot;limitDay&quot;:1,&quot;messagePrev&quot;:&quot;这篇文章已经过去&quot;,&quot;messageNext&quot;:&quot;天啦，请注意时效性！&quot;,&quot;postUpdate&quot;:&quot;2025-08-28 22:39:47&quot;}" hidden></div><blockquote>
+<p>既是问题，也是算法。线性回归问题，线性回归算法</p>
+</blockquote>
+<h2 id="1-引出线性回归问题"><a href="#1-引出线性回归问题" class="headerlink" title="1. 引出线性回归问题"></a>1. 引出线性回归问题</h2><ul>
+<li>这里有个预测房价问题，数据两列：面积，价格。我们假设面积和价格成线性关系⇒是一个线性回归问题</li>
+<li>已知线性回归方程：<code>y=ax+b</code></li>
+<li>原问题：一个新的<code>x</code>，求出对应的<code>y</code>。</li>
+<li>⇒原问题变为：求出合适的<code>a</code>和<code>b</code></li>
+<li>用什么方法求出合适的<code>a</code>和<code>b</code>呢？</li>
+<li>指标：衡量预测是否准确（a，b是否合适）</li>
+</ul>
+<hr>
+<h2 id="2-如何求a和b？"><a href="#2-如何求a和b？" class="headerlink" title="2. 如何求a和b？"></a>2. 如何求a和b？</h2><ul>
+<li><p>引出衡量预测结果的公式：（越小，表明预测结果越准确）</p>
+<p> <img src="../../../../images/Pasted%20image%2020250828223935.png" alt=""></p>
+</li>
+<li><p>引出损失函数<code>J</code>，（多了个1/2m，是为了求导时方便化简）</p>
+<p>  <img src="../../../../images/Pasted%20image%2020250828223958.png" alt=""></p>
+</li>
+<li><p>⇒原问题变为：找出使得损失函数<code>J</code>最小时，此时的<code>a</code>和<code>b</code></p>
+</li>
+<li><p><code>J=g(a,b)=f(p)</code></p>
+</li>
+</ul>
+<hr>
+<h2 id="3-梯度下降法（用来求损失函数J的最小值）"><a href="#3-梯度下降法（用来求损失函数J的最小值）" class="headerlink" title="3. 梯度下降法（用来求损失函数J的最小值）"></a>3. 梯度下降法（用来求损失函数<code>J</code>的最小值）</h2><blockquote>
+<p>损失函数最小值时，对<code>a,b</code>求得偏导都为0⇒求出此时的<code>a,b</code>就是最优<code>a,b</code></p>
+</blockquote>
+<p><img src="../../../../images/Pasted%20image%2020250828224231.png" alt=""></p>
+<ul>
+<li><p>梯度下降法，为什么能求出损失函数<code>J</code>的最小值？</p>
+</li>
+<li><p><code>J=f(p)</code>，对<code>p</code>求导</p>
+<ul>
+<li>情况1：导数<code>&gt;0</code>，此时<code>p_i</code>需要变小才能更接近极小值点，所以上式能求到<code>J</code>的最小值</li>
+<li>情况2：导数<code>&lt;0</code>，此时<code>p_i</code>需要变大才能更接近极小值点。</li>
+</ul>
+</li>
+<li>所以有了下面的重复计算：</li>
+</ul>
+<p><img src="../../../../images/Pasted%20image%2020250828224257.png" alt=""></p>
+<ul>
+<li>可以这样理解：sklearn求线性回归模型就是：根据给定的usa_housing_price.csv的数据来进行梯度下降， 求出最合适的a和b，也就是求出了最合适的线性回归模型lr1</li>
+</ul>
+<hr>
+<h2 id="4-模型评估方法"><a href="#4-模型评估方法" class="headerlink" title="4. 模型评估方法"></a>4. 模型评估方法</h2><ul>
+<li><strong>y与y^’的均分误差MSE</strong>，越小越好</li>
+</ul>
+<p><img src="../../../../images/Pasted%20image%2020250828224315.png" alt=""></p>
+<ul>
+<li><p><strong>R^2</strong>，越大越好</p>
+<p><img src="../../../../images/Pasted%20image%2020250828224335.png" alt=""></p>
+</li>
+</ul>
+<h2 id="5-实战见桌面ipy文件夹"><a href="#5-实战见桌面ipy文件夹" class="headerlink" title="5. 实战见桌面ipy文件夹"></a>5. 实战见桌面ipy文件夹</h2></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://blog.zzzero.site">ZhouZhou</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://blog.zzzero.site/2025/08/28/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B%E8%A7%A3%E5%86%B3%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%98/">https://blog.zzzero.site/2025/08/28/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B%E8%A7%A3%E5%86%B3%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%98/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://blog.zzzero.site" target="_blank">ZhouZhou's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a><a class="post-meta__tags" href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/">线性回归</a></div><div class="post-share"><div class="social-share" data-image="http://www.98qy.com/sjbz/api.php?r=28223740" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>支持我吧！</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.png" target="_blank"><img class="post-qr-code-img" src="/img/wechat.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.png" target="_blank"><img class="post-qr-code-img" src="/img/alipay.png" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2025/08/28/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B%E8%A7%A3%E5%86%B3%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/" title="逻辑回归模型解决分类问题"><img class="cover" src="http://www.98qy.com/sjbz/api.php?r=28224920" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">逻辑回归模型解决分类问题</div></div><div class="info-2"><div class="info-item-1">逻辑回归模型解决分类问题</div></div></div></a><a class="pagination-related" href="/2025/07/22/ML%E5%9F%BA%E7%A1%80/" title="ML基础"><img class="cover" src="http://www.98qy.com/sjbz/api.php?r=9291901" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">ML基础</div></div><div class="info-2"><div class="info-item-1">ML是什么，解决了什么问题？</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/08/28/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B%E8%A7%A3%E5%86%B3%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/" title="逻辑回归模型解决分类问题"><img class="cover" src="http://www.98qy.com/sjbz/api.php?r=28224920" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-28</div><div class="info-item-2">逻辑回归模型解决分类问题</div></div><div class="info-2"><div class="info-item-1">逻辑回归模型解决分类问题</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%BC%95%E5%87%BA%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">1. 引出线性回归问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%A6%82%E4%BD%95%E6%B1%82a%E5%92%8Cb%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">2. 如何求a和b？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95%EF%BC%88%E7%94%A8%E6%9D%A5%E6%B1%82%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0J%E7%9A%84%E6%9C%80%E5%B0%8F%E5%80%BC%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">3. 梯度下降法（用来求损失函数J的最小值）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E6%96%B9%E6%B3%95"><span class="toc-number">4.</span> <span class="toc-text">4. 模型评估方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%AE%9E%E6%88%98%E8%A7%81%E6%A1%8C%E9%9D%A2ipy%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="toc-number">5.</span> <span class="toc-text">5. 实战见桌面ipy文件夹</span></a></li></ol></div></div></div></div></main><footer id="footer"><div class="footer-flex"><div class="footer-flex-items"><div class="footer-flex-item"><div class="footer-flex-title">文档</div><div class="footer-flex-content"><a href="/posts/21cfbf15/" target="_blank" title="🚀 快速开始">🚀 快速开始</a><a href="/posts/dc584b87/" target="_blank" title="📑 主题页面">📑 主题页面</a><a href="/posts/4aa8abbe/" target="_blank" title="📌 主题配置">📌 主题配置</a><a href="/posts/ceeb73f/" target="_blank" title="⚔️ 标签外挂">⚔️ 标签外挂</a><a href="/posts/98d20436/" target="_blank" title="❓ 主题问答">❓ 主题问答</a><a href="/posts/4073eda/" target="_blank" title="⚡️ 建站教程">⚡️ 建站教程</a></div></div></div><div class="footer-flex-items"><div class="footer-flex-item"><div class="footer-flex-title">其他</div><div class="footer-flex-content"><a href="/Gallery/" target="_blank" title="图库">图库</a><a href="/messageboard/" target="_blank" title="留言板">留言板</a><a href="/talking/" target="_blank" title="说说">说说</a><a href="/link/" target="_blank" title="友链">友链</a></div></div></div><div class="footer-flex-items"><div class="footer-flex-item"><div class="footer-flex-title">框架</div><div class="footer-flex-content"><a href="https://hexo.io/zh-cn/" target="_blank" title="Hexo">Hexo</a><a href="https://butterfly.js.org/" target="_blank" title="Butterfly">Butterfly</a></div></div></div></div><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By ZhouZhou</span><span class="framework-info"><span class="footer-separator">|</span><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.3</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://twikoo.zzzero.site/',
+      region: 'ap-shanghai',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = (el = document, path = location.pathname) => {
+    twikoo.init({
+      el: el.querySelector('#twikoo-wrap'),
+      envId: 'https://twikoo.zzzero.site/',
+      region: 'ap-shanghai',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      },
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    
+
+    isShuoshuo && (window.shuoshuoComment.destroyTwikoo = () => {
+      if (el.children.length) {
+        el.innerHTML = ''
+        el.classList.add('no-comment')
+      }
+    })
+  }
+
+  const loadTwikoo = (el, path) => {
+    if (typeof twikoo === 'object') setTimeout(() => init(el, path), 0)
+    else btf.getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(() => init(el, path))
+  }
+
+  if (isShuoshuo) {
+    'Twikoo' === 'Twikoo'
+      ? window.shuoshuoComment = { loadComment: loadTwikoo }
+      : window.loadOtherComment = loadTwikoo
+    return
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script>(() => {
+  const option = null
+  const config = {"site_uv":false,"site_pv":false,"page_pv":false,"token":null}
+
+  const runTrack = () => {
+    umami.track(props => ({ ...props, url: window.location.pathname, title: GLOBAL_CONFIG_SITE.title }))
+  }
+
+  const loadUmamiJS = () => {
+    btf.getScript('https://analysis.zzzero.site/script.js', {
+      'data-website-id': '27f5cd3f-7f37-4fe8-97db-472951c0f249',
+      'data-auto-track': 'false',
+      ...option
+    }).then(runTrack)
+  }
+
+  const getData = async (isPost) => {
+    const now = Date.now()
+    const keyUrl = isPost ? `&url=${window.location.pathname}` : ''
+    const headerList = { 'Accept': 'application/json' }
+    if (true) headerList['Authorization'] = `Bearer ${config.token}`
+    else headerList['x-umami-api-key'] = config.token
+    const res = await fetch(`https://analysis.zzzero.site/api/websites/27f5cd3f-7f37-4fe8-97db-472951c0f249/stats?startAt=0000000000&endAt=${now}${keyUrl}`, {
+      method: "GET",
+      headers: headerList
+    })
+    return await res.json()
+  }
+
+  const insertData = async () => {
+    try {
+      if (GLOBAL_CONFIG_SITE.pageType === 'post' && config.page_pv) {
+        const pagePV = document.getElementById('umamiPV')
+        if (pagePV) {
+          const data = await getData(true)
+          pagePV.textContent = data.pageviews.value
+        }
+      } else {
+        const data = (config.site_uv || config.site_pv) && await getData()
+        if (config.site_uv) {
+          const siteUV = document.getElementById('umami-site-uv')
+          if (siteUV) siteUV.textContent = data.visitors.value
+        }
+        if (config.site_pv) {
+          const sitePV = document.getElementById('umami-site-pv')
+          if (sitePV) sitePV.textContent = data.pageviews.value
+        }
+      }
+    } catch (e) {
+      console.error('Failed to load Umami Analytics:', e)
+    }
+  }
+
+  btf.addGlobalFn('pjaxComplete', runTrack, 'umami_analytics_run_track')
+  btf.addGlobalFn('pjaxComplete', insertData, 'umami_analytics_insert')
+
+  loadUmamiJS()
+  insertData()
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end --></body></html>

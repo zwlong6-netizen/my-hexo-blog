@@ -2,7 +2,7 @@
 title: ML基础
 description: ML是什么，解决了什么问题？
 date: 2025-07-22T17:44:38
-updated: 2025-08-28 22:00:27
+updated: 2025-07-22 22:00:27
 tags:
 categories: 人工智能
 keywords:
