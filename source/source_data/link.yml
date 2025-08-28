@@ -1,0 +1,11 @@
+# flink_style: butterfly / flexcard
+- class_name: 友情链接
+  class_desc: 这里的每个站点，都耐人寻味……
+  flink_style: flexcard
+  link_list:
+    - name: 码农观测站
+      link: https://www.codeobservatory.cn/
+      avatar: https://www.codeobservatory.cn/img/butterfly-icon.webp
+      siteshot: https://www.codeobservatory.cn/images/shot.png
+      descr: 技术分享，编程学习
+      type: 技术
