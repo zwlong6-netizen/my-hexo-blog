@@ -188,13 +188,18 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "1cf33b67d4546f92",
+  "active": "43a1252af57cfbd1",
   "lastOpenFiles": [
+    "_posts/2025/08/28/hello-world.md",
+    "_posts/2025/08/28",
+    "_posts/2025/08",
+    "_posts/2025",
+    "templete/hexo_posts_template.md",
+    "_posts/2025-08-28",
     "tags/index.md",
     "templete/blog_template.md",
-    "templete/hexo_posts_template.md",
     "_posts/测试文档.md",
-    "_posts/hello-world.md",
+    "_posts/2025-08-28/hello-world.md",
     "_posts/hexo_content.md",
     "_posts/test1.md",
     "test1.md",
@@ -224,15 +229,12 @@
     "posts/2025-08-24/assets/Pasted image 20250824232011.png",
     "posts/2025-08-24/assets",
     "posts/2025-08-24",
-    "posts/2025-08-24/文档模版3.md",
     "posts/2025-08-24/assets/Pasted image 20250824231602.png",
     "posts/2025-08-24/assets/Pasted image 20250824225640.png",
     "posts/2025-08-24/assets/Pasted image 20250824225629.png",
     "posts/2025-08-24/assets/Pasted image 20250824225554.png",
     "posts/2025-08-24/assets/Pasted image 20250824225242.png",
     "posts/2025-08-24/assets/Pasted image 20250824224347.png",
-    "posts/2025-08-24/assets/Pasted image 20250824224313.png",
-    "templete/update-timestamp-user-script.js",
-    "templete/update-timestamp.js"
+    "posts/2025-08-24/assets/Pasted image 20250824224313.png"
   ]
 }
