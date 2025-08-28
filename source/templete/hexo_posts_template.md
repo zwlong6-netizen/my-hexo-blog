@@ -2,17 +2,14 @@
 title: <% tp.file.title %>
 description: 测试文档的描述
 date: <% tp.file.creation_date("yyyy-MM-DD HH:mm:ss") %>
-updated: <% tp.file.last_modified_date("yyyy-MM-DD HH:mm:ss") %>
+updated: 2025-08-28 22:00:55
 tags:
-  - 测试标签3
-  - 测试标签4
+  - git合并
 categories: 测试分类2
 keywords:
   - 关键字1
-  - 关键字2
-  - 关键字3
-  - 关键字4
 top_img:
+cover: http://www.98qy.com/sjbz/api.php?r={{DATE:DDHHmmss}}
 ---
 
 

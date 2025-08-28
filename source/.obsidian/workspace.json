@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "01895fa4e4b651ea",
+        "id": "7b889e938ec4cc9f",
         "type": "tabs",
         "children": [
           {
-            "id": "ffc75df33eff8e38",
+            "id": "6f66661c6bf49f54",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "_posts/2024/09/19/git相关.md",
+                "mode": "preview",
+                "source": true
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "git相关"
             }
           }
         ]
@@ -184,10 +188,14 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "ffc75df33eff8e38",
+  "active": "6f66661c6bf49f54",
   "lastOpenFiles": [
-    "_posts/2024/09/19/git相关.md",
+    "_posts/2025/08/28/ML基础.md",
     "templete/hexo_posts_template.md",
+    "_posts/2024/09/19/git相关.md",
+    "_posts/2025/08/28",
+    "_posts/2025/08",
+    "_posts/2025",
     "images/Pasted image 20250828214924.png",
     "images/Pasted image 20250828214916.png",
     "images/Pasted image 20250828211256.png",
@@ -205,7 +213,6 @@
     "images/Pasted image 20250828213051.png",
     "images",
     "images",
-    "_posts/assets",
     "_posts/2025-08-28/hello-world.md",
     "_posts/2025/08/28/hello-world.md",
     "tags/index.md",
@@ -220,8 +227,6 @@
     "posts/2025-08-26/test4.md",
     "posts/2024-09-19/assets/Pasted image 20250826100551.png",
     "posts/2024-09-19/assets/Pasted image 20250826100533.png",
-    "posts/2024-09-19/assets",
-    "posts/2024-09-19",
     "posts/2025-08-26/粗略了解MySQL锁.md",
     "posts/2025-08-26/粗略了解MySQL事务.md",
     "posts/2025-08-26/docker总结.md",

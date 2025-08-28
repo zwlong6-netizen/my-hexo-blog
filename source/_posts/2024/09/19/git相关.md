@@ -1,14 +1,15 @@
 ---
 title: git相关
-description: 测试文档的描述
+description: git的相关命令，git提交到远程，git拉取，git合并？
 date: 2024-09-19T09:19:55
-updated: 2025-08-28 21:48:53
+updated: 2025-08-28 22:02:11
 tags:
   - git命令
   - git合并
 categories: git
 keywords:
 top_img:
+cover: http://www.98qy.com/sjbz/api.php?r=9291900
 ---
 ## 1. 相关命令
 
