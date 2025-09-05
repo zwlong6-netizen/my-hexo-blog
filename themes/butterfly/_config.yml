@@ -841,10 +841,10 @@ preloader:
   # 1. fullpage-loading
   # 2. pace (progress bar)
   # else all
-  source: 3
+  source: 2
   # pace theme (see https://codebyzach.github.io/pace/)
   pace_css_url: /css/progress_bar.css
-  avatar: # 自定义头像
+  avatar: https://s1.imagehub.cc/images/2025/08/22/5aeabd5d7868bc9bc70af208609c7b50.jpg
 
 # Page Transition
 enter_transitions: true
