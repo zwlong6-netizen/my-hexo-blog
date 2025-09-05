@@ -1,5 +1,5 @@
 ---
-title: orbstack管理虚拟机-test1
+title: orbstack管理虚拟机-test12212
 description: orbstack相对于docker的优势？如何管理虚拟机呢？
 date: 2025-08-28 22:57:23
 updated: 2025-08-28 22:58:29
