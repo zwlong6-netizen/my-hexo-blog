@@ -826,14 +826,25 @@ mask:
   footer: true
 
 # Loading Animation
+# preloader:
+#   enable: false
+#   # source
+#   # 1. fullpage-loading
+#   # 2. pace (progress bar)
+#   source: 1
+#   # pace theme (see https://codebyzach.github.io/pace/)
+#   pace_css_url:
+# Loading Animation (加载动画)
 preloader:
-  enable: false
+  enable: true
   # source
   # 1. fullpage-loading
   # 2. pace (progress bar)
-  source: 1
+  # else all
+  source: 3
   # pace theme (see https://codebyzach.github.io/pace/)
-  pace_css_url:
+  pace_css_url: /css/progress_bar.css
+  avatar: # 自定义头像
 
 # Page Transition
 enter_transitions: true
