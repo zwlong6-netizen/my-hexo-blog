@@ -1,0 +1,8 @@
+# Redirect rules for Cloudflare Pages
+# Add any custom redirects here if needed
+
+# Example: redirect old URLs to new ones
+# /old-page /new-page 301
+
+# Fallback for 404 errors
+/* /404.html 404
