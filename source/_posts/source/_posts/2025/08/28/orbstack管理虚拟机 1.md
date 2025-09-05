@@ -12,7 +12,7 @@ keywords:
 top_img:
 cover: http://www.98qy.com/sjbz/api.php?r=28225723
 ---
-- orbstack运行虚拟机原理111111111
+- orbstack运行虚拟机原理111111111222
     
     OrbStack 的内核并不是独立的 Linux 内核，而是基于 **macOS 的 Virtualization Framework**，通过共享 macOS 宿主操作系统的内核来运行 Linux 虚拟机和 Docker 容器。以下是详细说明：
     
