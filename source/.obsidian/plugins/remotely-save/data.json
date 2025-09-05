@@ -1,0 +1,162 @@
+{
+  "s3": {
+    "s3Endpoint": "https://86df921ecaf1ca548a49c0eac4f85b43.r2.cloudflarestorage.com",
+    "s3Region": "us-east-1",
+    "s3AccessKeyID": "1c8358c4ca2dd80b88eeda2f08ed0e8c",
+    "s3SecretAccessKey": "414dc924c3793887d4f878ed78d107bbe3ee14405ed468dcac6498d4b658fdc1",
+    "s3BucketName": "test",
+    "bypassCorsLocally": true,
+    "partsConcurrency": 20,
+    "forcePathStyle": true,
+    "remotePrefix": "",
+    "useAccurateMTime": true,
+    "reverseProxyNoSignUrl": "",
+    "generateFolderObject": false
+  },
+  "webdav": {
+    "address": "",
+    "username": "",
+    "password": "",
+    "authType": "basic",
+    "manualRecursive": true,
+    "depth": "manual_1",
+    "remoteBaseDir": "",
+    "customHeaders": ""
+  },
+  "dropbox": {
+    "accessToken": "",
+    "clientID": "uwxv4ofkrmc4zzf",
+    "refreshToken": "",
+    "accessTokenExpiresInSeconds": 0,
+    "accessTokenExpiresAtTime": 0,
+    "accountID": "",
+    "username": "",
+    "credentialsShouldBeDeletedAtTime": 0,
+    "remoteBaseDir": ""
+  },
+  "onedrive": {
+    "accessToken": "",
+    "clientID": "3729fc1c-0af2-4bec-9376-d7ac4f0ff806",
+    "authority": "https://login.microsoftonline.com/common",
+    "refreshToken": "",
+    "accessTokenExpiresInSeconds": 0,
+    "accessTokenExpiresAtTime": 0,
+    "deltaLink": "",
+    "username": "",
+    "credentialsShouldBeDeletedAtTime": 0,
+    "emptyFile": "skip",
+    "kind": "onedrive",
+    "remoteBaseDir": ""
+  },
+  "onedrivefull": {
+    "accessToken": "",
+    "clientID": "3729fc1c-0af2-4bec-9376-d7ac4f0ff806",
+    "authority": "https://login.microsoftonline.com/common",
+    "refreshToken": "",
+    "accessTokenExpiresInSeconds": 0,
+    "accessTokenExpiresAtTime": 0,
+    "deltaLink": "",
+    "username": "",
+    "credentialsShouldBeDeletedAtTime": 0,
+    "emptyFile": "skip",
+    "kind": "onedrivefull"
+  },
+  "webdis": {
+    "address": "",
+    "username": "",
+    "password": "",
+    "remoteBaseDir": ""
+  },
+  "googledrive": {
+    "accessToken": "",
+    "refreshToken": "",
+    "accessTokenExpiresInMs": 0,
+    "accessTokenExpiresAtTimeMs": 0,
+    "credentialsShouldBeDeletedAtTimeMs": 0,
+    "scope": "https://www.googleapis.com/auth/drive.file",
+    "kind": "googledrive"
+  },
+  "box": {
+    "accessToken": "",
+    "refreshToken": "",
+    "accessTokenExpiresInMs": 0,
+    "accessTokenExpiresAtTimeMs": 0,
+    "credentialsShouldBeDeletedAtTimeMs": 0,
+    "kind": "box"
+  },
+  "pcloud": {
+    "accessToken": "",
+    "hostname": "eapi.pcloud.com",
+    "locationid": 2,
+    "credentialsShouldBeDeletedAtTimeMs": 0,
+    "emptyFile": "skip",
+    "kind": "pcloud"
+  },
+  "yandexdisk": {
+    "accessToken": "",
+    "accessTokenExpiresInMs": 0,
+    "accessTokenExpiresAtTimeMs": 0,
+    "refreshToken": "",
+    "scope": "",
+    "kind": "yandexdisk"
+  },
+  "koofr": {
+    "accessToken": "",
+    "accessTokenExpiresInMs": 0,
+    "accessTokenExpiresAtTimeMs": 0,
+    "refreshToken": "",
+    "remoteBaseDir": "",
+    "credentialsShouldBeDeletedAtTimeMs": 0,
+    "scope": "",
+    "api": "https://app.koofr.net",
+    "mountID": "",
+    "kind": "koofr"
+  },
+  "azureblobstorage": {
+    "containerSasUrl": "",
+    "containerName": "",
+    "remotePrefix": "",
+    "generateFolderObject": false,
+    "partsConcurrency": 5,
+    "kind": "azureblobstorage"
+  },
+  "password": "",
+  "serviceType": "s3",
+  "currLogLevel": "debug",
+  "autoRunEveryMilliseconds": 600000,
+  "initRunAfterMilliseconds": -1,
+  "syncOnSaveAfterMilliseconds": -1,
+  "agreeToUploadExtraMetadata": true,
+  "concurrency": 15,
+  "syncConfigDir": true,
+  "syncBookmarks": true,
+  "syncUnderscoreItems": true,
+  "lang": "auto",
+  "logToDB": false,
+  "skipSizeLargerThan": -1,
+  "ignorePaths": [],
+  "onlyAllowPaths": [],
+  "enableStatusBarInfo": true,
+  "deleteToWhere": "system",
+  "agreeToUseSyncV3": true,
+  "conflictAction": "keep_newer",
+  "howToCleanEmptyFolder": "clean_both",
+  "protectModifyPercentage": 100,
+  "syncDirection": "incremental_push_and_delete_only",
+  "obfuscateSettingFile": false,
+  "enableMobileStatusBar": false,
+  "encryptionMethod": "rclone-base64",
+  "profiler": {
+    "enable": false,
+    "enablePrinting": false,
+    "recordSize": false
+  },
+  "pro": {
+    "accessToken": "",
+    "accessTokenExpiresInMs": 0,
+    "accessTokenExpiresAtTimeMs": 0,
+    "refreshToken": "",
+    "enabledProFeatures": [],
+    "email": ""
+  }
+}
