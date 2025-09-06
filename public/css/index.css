@@ -3425,6 +3425,11 @@ figure.highlight pre .javascript .function {
   -ms-transition: all 0.5s;
   transition: all 0.5s;
 }
+@media screen and (max-width: 768px) {
+  #page-header.responsive-bg {
+    background-image: url("/img/top_image_mobile.png") !important;
+  }
+}
 #page-header:not(.not-top-img):before {
   position: absolute;
   width: 100%;

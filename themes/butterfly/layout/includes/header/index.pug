@@ -17,6 +17,7 @@ if !theme.disable_top_img && page.top_img !== false
       - top_img = theme.category_per_img && theme.category_per_img[page.category] || returnTopImg(theme.category_img)
     when 'home'
       - top_img = returnTopImg(theme.index_img)
+      - responsive_bg = theme.index_img_responsive
     when 'archive'
       - top_img = returnTopImg(theme.archive_img)
     default
@@ -26,7 +27,7 @@ if !theme.disable_top_img && page.top_img !== false
     - bg_img = getBgPath(top_img)
     - headerClassName = globalPageType === 'home' ? 'full_page' : globalPageType === 'post' ? 'post-bg' : 'not-home-page'
 
-header#page-header(class=`${headerClassName + isFixedClass}` style=bg_img)
+header#page-header(class=`${headerClassName + isFixedClass}${responsive_bg ? ' responsive-bg' : ''}` style=bg_img)
   include ./nav.pug
   if top_img !== false
     if globalPageType === 'post'

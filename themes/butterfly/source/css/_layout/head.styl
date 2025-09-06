@@ -7,6 +7,13 @@
   background-repeat: no-repeat
   transition: all .5s
 
+  // Responsive background images for homepage
+  &.responsive-bg
+    +maxWidth768()
+      background-image: url(hexo-config('index_img_responsive.mobile')) !important
+    +minWidth769()
+      background-image: url(hexo-config('index_img_responsive.desktop')) !important
+
   if hexo-config('mask.header')
     &:not(.not-top-img):before
       position: absolute

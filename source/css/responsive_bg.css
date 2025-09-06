@@ -1,0 +1,30 @@
+/* Responsive Background Images for Butterfly Theme */
+
+/* Desktop background (default) - 769px and above */
+#page-header.responsive-bg {
+  background-image: url('/img/top_image.png');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Mobile background (768px and below) */
+@media screen and (max-width: 768px) {
+  #page-header.responsive-bg {
+    background-image: url('/img/top_image_mobile.png') !important;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+/* Ensure proper background handling for all screen sizes */
+#page-header.responsive-bg.full_page {
+  background-attachment: fixed;
+}
+
+@media screen and (max-width: 768px) {
+  #page-header.responsive-bg.full_page {
+    background-attachment: scroll;
+  }
+}
