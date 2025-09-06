@@ -53,14 +53,74 @@ script.
       document.getElementById('loading-box').classList.add("loaded")
     },
     initLoading: () => {
-      document.body.style.overflow = '';
+      document.body.style.overflow = 'hidden';
       document.getElementById('loading-box').classList.remove("loaded")
-
     }
   }
-  window.addEventListener('load',()=> { preloader.endLoading() })
+  
+  // Initialize loading
+  preloader.initLoading()
+  
+  // Optimized loading logic - end loading at 60% progress
+  let loadingEnded = false
+  const endLoadingSafely = () => {
+    if (!loadingEnded) {
+      loadingEnded = true
+      preloader.endLoading()
+    }
+  }
+  
+  // Check if page is already loaded
+  if (document.readyState === 'complete') {
+    endLoadingSafely()
+  } else {
+    // Wait for more resources to load before ending (closer to 60% progress)
+    let domReady = false
+    let resourcesLoaded = false
+    
+    // Mark DOM as ready but don't end loading yet
+    document.addEventListener('DOMContentLoaded', () => {
+      domReady = true
+    })
+    
+    // End loading when window load event fires (about 60% progress)
+    window.addEventListener('load', () => {
+      resourcesLoaded = true
+      endLoadingSafely()
+    })
+    
+    // Progressive loading: end when both DOM and some resources are ready
+    const checkProgressiveLoading = () => {
+      if (domReady && !resourcesLoaded) {
+        // Wait a bit more for resources to load (simulating 60% progress)
+        setTimeout(() => {
+          if (!resourcesLoaded) {
+            endLoadingSafely()
+          }
+        }, 800) // Wait 800ms after DOM ready
+      }
+    }
+    
+    // Check progressive loading
+    document.addEventListener('DOMContentLoaded', checkProgressiveLoading)
+    
+    // Safety timeout: force end after 3 seconds
+    setTimeout(endLoadingSafely, 3000)
+    
+    // Additional check: end loading when page becomes interactive
+    if (document.readyState === 'interactive') {
+      setTimeout(() => {
+        if (!loadingEnded) {
+          endLoadingSafely()
+        }
+      }, 1000) // Wait 1 second after interactive state
+    }
+  }
 
   if (!{theme.pjax && theme.pjax.enable}) {
-    document.addEventListener('pjax:send', () => { preloader.initLoading() })
-    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+    document.addEventListener('pjax:send', () => { 
+      loadingEnded = false
+      preloader.initLoading() 
+    })
+    document.addEventListener('pjax:complete', endLoadingSafely)
   }
